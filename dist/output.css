@@ -574,8 +574,8 @@ video {
   }
 }
 
-.static{
-  position: static;
+.fixed{
+  position: fixed;
 }
 
 .absolute{
@@ -622,10 +622,6 @@ video {
   top: -15px;
 }
 
-.-top-\[2px\]{
-  top: -2px;
-}
-
 .-top-\[38\%\]{
   top: -38%;
 }
@@ -640,10 +636,6 @@ video {
 
 .left-0{
   left: 0px;
-}
-
-.left-1{
-  left: 0.25rem;
 }
 
 .left-2{
@@ -746,8 +738,8 @@ video {
   z-index: 30;
 }
 
-.z-40{
-  z-index: 40;
+.z-50{
+  z-index: 50;
 }
 
 .m-0{
@@ -805,6 +797,10 @@ video {
 
 .mb-5{
   margin-bottom: 1.25rem;
+}
+
+.mb-\[16px\]{
+  margin-bottom: 16px;
 }
 
 .mb-\[1px\]{
@@ -1120,6 +1116,10 @@ video {
   width: 50%;
 }
 
+.w-\[55px\]{
+  width: 55px;
+}
+
 .w-\[60\%\]{
   width: 60%;
 }
@@ -1130,6 +1130,10 @@ video {
 
 .w-\[90\%\]{
   width: 90%;
+}
+
+.w-\[900px\]{
+  width: 900px;
 }
 
 .w-full{
@@ -1150,6 +1154,10 @@ video {
 
 .min-w-\[42px\]{
   min-width: 42px;
+}
+
+.min-w-\[70px\]{
+  min-width: 70px;
 }
 
 .max-w-\[200px\]{
@@ -1178,10 +1186,6 @@ video {
 
 .max-w-\[80px\]{
   max-width: 80px;
-}
-
-.max-w-\[900px\]{
-  max-width: 900px;
 }
 
 .-translate-x-2{
@@ -1724,6 +1728,10 @@ video {
   background-color: rgb(253 224 71 / var(--tw-bg-opacity));
 }
 
+.bg-opacity-75{
+  --tw-bg-opacity: 0.75;
+}
+
 .bg-\[url\(\"https\:\/\/cdn0\.iconfinder\.com\/data\/icons\/child-1-1\/70\/boy-child-children-girl-512\.png\"\)\]{
   background-image: url("https://cdn0.iconfinder.com/data/icons/child-1-1/70/boy-child-children-girl-512.png");
 }
@@ -2182,12 +2190,20 @@ video {
   transition-duration: 1000ms;
 }
 
+.duration-200{
+  transition-duration: 200ms;
+}
+
 .duration-300{
   transition-duration: 300ms;
 }
 
 .duration-500{
   transition-duration: 500ms;
+}
+
+.duration-\[2000ms\]{
+  transition-duration: 2000ms;
 }
 
 .ease-linear{

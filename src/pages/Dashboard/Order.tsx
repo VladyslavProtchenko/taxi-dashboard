@@ -51,13 +51,13 @@ const Orders = ():React.ReactNode => {
     } = useMain()
     const { store } = useStore()
     const isFrench = false;
-    const isTitle = false;
-    const isName = false;
-    const isTitle2 = false;
-    const isName2 = false;
+    // const isTitle = false;
+    // const isName = false;
+    // const isTitle2 = false;
+    // const isName2 = false;
     const isTitle3 = false;
     const isName3 = false;
-    const isEmail = false;
+    // const isEmail = false;
     const options1 = isFrench ? store.titleListF.map(item=>({value: item, label: item })) : store.titleList.map(item=>({value: item, label: item }))
     const [ localStops, setLocalStops ] = useState<{[key:number]:string}>({})
 
@@ -70,13 +70,19 @@ const Orders = ():React.ReactNode => {
     // const [isTo, setIsTo] = useState(true)
 
     const ref = useOnclickOutside(() => setIsDateOpen(false));
+    // const noPhone = 'false'
 
-
-    const noPhone = 'false'
+//____________________________________________CONDITIONS________________________________________________________________
 
     useEffect(()=>{
         getOrders()
     },[])
+
+//___________________________________________________FUNCTIONS___________________________________________________________________
+
+function sendOrder(){
+    alert('order sent')
+}
 
     return (
     <div className={box}>
@@ -88,47 +94,47 @@ const Orders = ():React.ReactNode => {
             <div className="flex space-x-2 ">
             {/* __________________________________________________name________________________________________________             */}
                 <div className=' flex flex-col space-y-4'>
-                    <div className={ (isTitle && isName) ? nameBox: nameBox + '  border-red-500' }>
+                    <div className={(list[0].title && list[0].name.length>2) ? nameBox: nameBox + '  border-red-500' }>
                         <span className='icon'><BsPeople/></span>
                         <Select allowClear  placeholder={isFrench? 'Titre':'Title' } style={{width: 110, height: 40}} onChange={setTitle} options={options1} value={list[0].title || null} />
                         <Input allowClear value={list[0].name} placeholder={isFrench? store.nameListF[0]:store.nameList[0] } onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>)=>{setName(e.target.value)}}style={{maxWidth:180, borderRadius: 5, height: 30, paddingLeft:0,}}/>
                     </div>
-                    <div className={ (isTitle2 && isName2) ? nameBox: nameBox + '  border-red-500' }>
+                    {(list[0].title && list[0].name.length>2)&& <div className={nameBox}>
                         <span className='icon'><BsPeople/></span>
                         <Select allowClear  placeholder={isFrench? 'Titre':'Title' } style={{width: 110, height: 40}} onChange={setTitle2} options={options1} value={list[0].title2 || null} />
                         <Input allowClear value={list[0].name2} placeholder={isFrench? store.nameListF[0]:store.nameList[0] } onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>)=>{setName2(e.target.value)}}style={{maxWidth:180, borderRadius: 5, height: 30, paddingLeft:0}}/>
-                    </div>
-                    <div className={ (isTitle3 && isName3) ? nameBox: nameBox + '  border-red-500' }>
+                    </div>}
+                    {(list[0].title2 && list[0].name2.length>2) && <div className={ (isTitle3 && isName3) ? nameBox: nameBox + '  border-red-500' }>
                         <span className='icon'><BsPeople/></span>
                         <Select allowClear  placeholder={isFrench? 'Titre':'Title' } style={{width: 110, height: 40}} onChange={setTitle3} options={options1} value={list[0].title3 || null} />
                         <Input allowClear value={list[0].name3} placeholder={isFrench? store.nameListF[0]:store.nameList[0] } onChange={(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>)=>{setName3(e.target.value)}}style={{maxWidth:180, borderRadius: 5, height: 30, paddingLeft:0}}/>
-                    </div>
+                    </div>}
                 </div>
 {/* _____________________________________________________________email________________________________________________ */}
 
                 <div className='flex flex-col space-y-4'>
                     <div className={nameBox +' border-none '}>
-                        <MailInput value={list[0].email} mainMail={true} noMail={isEmail} onChange={setEmail} placeholder={isFrench? store.emailListF[0]:store.emailList[0] }/>
+                        <MailInput value={list[0].email} mainMail={true} noMail={list[0].email.length>5} onChange={setEmail} placeholder={isFrench? store.emailListF[0]:store.emailList[0] }/>
                     </div>
-                    <div className={nameBox +' border-none '}>
-                        <MailInput value={list[0].email2} mainMail={true} noMail={isEmail} onChange={setEmail2} placeholder={isFrench? store.emailListF[0]:store.emailList[0] }/>
-                    </div>
-                    <div className={nameBox +' border-none '}>
-                        <MailInput value={list[0].email3} mainMail={true} noMail={isEmail} onChange={setEmail3} placeholder={isFrench? store.emailListF[0]:store.emailList[0] }/>
-                    </div>
+                    {<div className={nameBox +' border-none '}>
+                        <MailInput value={list[0].email2} mainMail={true} noMail={true} onChange={setEmail2} placeholder={isFrench? store.emailListF[0]:store.emailList[0] }/>
+                    </div>}
+                    {<div className={nameBox +' border-none '}>
+                        <MailInput value={list[0].email3} mainMail={true} noMail={true} onChange={setEmail3} placeholder={isFrench? store.emailListF[0]:store.emailList[0] }/>
+                    </div>}
                 </div>
 {/* _____________________________________________________________phone________________________________________________ */}
 
                 <div className='flex flex-col space-y-4'>
-                    <div className={noPhone ? nameBox +' border z-30': nameBox+ ' border border-red-500 z-30' } >
+                    <div className={1? nameBox +' border ': nameBox+ ' border border-red-500 ' } >
                         <PhoneNumberInput  setValidation={setIsPhone} type={1} value={list[0].phone} onChange={setPhone}/>
                     </div>
-                    <div className={noPhone ? nameBox +' border z-30': nameBox+ ' border border-red-500 z-30' } >
+                    {<div className={ nameBox} >
                         <PhoneNumberInput  setValidation={setIsPhone} type={2} value={list[0].phone2} onChange={setPhone2}/>
-                    </div>
-                    <div className={noPhone ? nameBox +' border z-30': nameBox+ ' border border-red-500 z-30' } >
+                    </div>}
+                    {<div className={ nameBox } >
                         <PhoneNumberInput  setValidation={setIsPhone} type={2} value={list[0].phone3} onChange={setPhone3}/>
-                    </div>
+                    </div>}
                 </div>
 
             </div>
@@ -628,7 +634,7 @@ const Orders = ():React.ReactNode => {
                 </div>}
             </div>
 
-{/* ___________________________________________________options_________________________________________________________________*/}
+{/* ___________________________________________________PAYMENT_________________________________________________________________*/}
             <div className={optionsSection}>
                 <div className='pb-2'>
                     <div className='text-blue-600 w-1/3'>Payment method</div>
@@ -645,7 +651,7 @@ const Orders = ():React.ReactNode => {
                     }}/></span>
 
                 <div className="flex space-x-2">
-                    <div className={btnGreen}>confirm</div>
+                    <div className={btnGreen} onClick={sendOrder}>confirm</div>
                     <div className={btnPurple}>orders</div>
                 </div>
             </div>
@@ -729,7 +735,7 @@ const selectTextActive = 'px-2  bg-gray-600 text-white flex items-center py-1 bo
 
 const dateBox = 'flex relative border pr-3 rounded-lg py-1 cursor-pointer'
 const setDateBtn = ' border bg-sky-500 hover:bg-sky-400 active:bg-sky-600 shadow cursor-pointer rounded px-3 py-2 flex text-white items-center'
-const dateTimeSubmenu ='absolute z-30 flex flex-col item-star top-[102%] left-0 z-20 max-w-[300px] pb-2 bg-white shadow-xl rounded-xl sm:-left-[10px]'
+const dateTimeSubmenu ='absolute  flex flex-col item-star top-[102%] left-0 z-20 max-w-[300px] pb-2 bg-white shadow-xl rounded-xl sm:-left-[10px]'
 
 const nameBox = 'flex items-center rounded-lg border self-start'
 const mainType = 'flex flex-col w-full px-4 mb-2 text-xs items-center'
@@ -744,7 +750,7 @@ const personalInfo = 'flex flex-col w-full bg-white rounded-xl mb-5 p-4 text-xs 
 const optionsSection = 'flex flex-col w-[49%] bg-white rounded-xl mb-5 p-4 text-xs shadow-xl'
 const trip = 'flex flex-col w-[49%] bg-white rounded-xl mb-5 p-4 text-xs shadow-xl'
 
-const box = 'flex flex-col w-full  py-20 max-w-[900px] min-h-screen '
+const box = 'flex flex-col py-20 w-[900px] min-h-screen '
 
 
 
