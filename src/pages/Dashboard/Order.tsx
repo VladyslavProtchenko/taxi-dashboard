@@ -85,7 +85,7 @@ function sendOrder(){
 }
 
     return (
-    <div className={box}>
+    <div className={container}>
 {/* __________________________________________________personal info___________________________________________________________*/}
         <div className={personalInfo}>
             <div className='pb-2'>
@@ -750,7 +750,7 @@ const personalInfo = 'flex flex-col w-full bg-white rounded-xl mb-5 p-4 text-xs 
 const optionsSection = 'flex flex-col w-[49%] bg-white rounded-xl mb-5 p-4 text-xs shadow-xl'
 const trip = 'flex flex-col w-[49%] bg-white rounded-xl mb-5 p-4 text-xs shadow-xl'
 
-const box = 'flex flex-col py-20 w-[900px] min-h-screen '
+const container = 'flex flex-col w-full mx-[200px] min-h-screen px-6 '
 
 
 

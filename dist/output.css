@@ -738,12 +738,12 @@ video {
   z-index: 30;
 }
 
-.z-50{
-  z-index: 50;
-}
-
 .m-0{
   margin: 0px;
+}
+
+.m-6{
+  margin: 1.5rem;
 }
 
 .mx-1{
@@ -754,6 +754,11 @@ video {
 .mx-\[1px\]{
   margin-left: 1px;
   margin-right: 1px;
+}
+
+.mx-\[200px\]{
+  margin-left: 200px;
+  margin-right: 200px;
 }
 
 .mx-auto{
@@ -821,6 +826,10 @@ video {
 
 .ml-4{
   margin-left: 1rem;
+}
+
+.ml-\[55px\]{
+  margin-left: 55px;
 }
 
 .ml-auto{
@@ -1096,8 +1105,16 @@ video {
   width: 30%;
 }
 
+.w-\[300px\]{
+  width: 300px;
+}
+
 .w-\[30px\]{
   width: 30px;
+}
+
+.w-\[320px\]{
+  width: 320px;
 }
 
 .w-\[35px\]{
@@ -1116,6 +1133,10 @@ video {
   width: 50%;
 }
 
+.w-\[54px\]{
+  width: 54px;
+}
+
 .w-\[55px\]{
   width: 55px;
 }
@@ -1130,10 +1151,6 @@ video {
 
 .w-\[90\%\]{
   width: 90%;
-}
-
-.w-\[900px\]{
-  width: 900px;
 }
 
 .w-full{
@@ -1154,6 +1171,10 @@ video {
 
 .min-w-\[42px\]{
   min-width: 42px;
+}
+
+.min-w-\[430px\]{
+  min-width: 430px;
 }
 
 .min-w-\[70px\]{
@@ -1320,10 +1341,6 @@ video {
   justify-content: space-between;
 }
 
-.justify-around{
-  justify-content: space-around;
-}
-
 .space-x-1 > :not([hidden]) ~ :not([hidden]){
   --tw-space-x-reverse: 0;
   margin-right: calc(0.25rem * var(--tw-space-x-reverse));
@@ -1443,6 +1460,11 @@ video {
 .rounded-r{
   border-top-right-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
+}
+
+.rounded-r-full{
+  border-top-right-radius: 9999px;
+  border-bottom-right-radius: 9999px;
 }
 
 .rounded-t-\[30px\]{
@@ -1772,8 +1794,8 @@ video {
   padding: 1rem;
 }
 
-.p-5{
-  padding: 1.25rem;
+.p-6{
+  padding: 1.5rem;
 }
 
 .px-0{
@@ -1829,11 +1851,6 @@ video {
 .py-2{
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-}
-
-.py-20{
-  padding-top: 5rem;
-  padding-bottom: 5rem;
 }
 
 .py-3{
@@ -2432,6 +2449,41 @@ select option {
           clip-path: polygon(29% 0, 100% 0, 100% 100%, 0% 100%);
 }
 
+:where(.dateSelect).ant-select .ant-select-arrow  {
+  inset-inline-end: 3px !important;
+  width: 5px !important;
+  height: 5px !important;
+  top: 55% !important;
+  border-left-width: 1px !important;
+  border-top-width: 1px !important;
+}
+
+:where(.dateSelect).ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+  background-color: rgba(0,0,0,0);
+}
+
+.dateSelect {
+  border: black solid 0px !important;
+}
+
+:where(.filterSelect).ant-select-single.ant-select-show-arrow .ant-select-selection-placeholder {
+  -webkit-padding-end:24px !important;
+          padding-inline-end:24px !important;
+}
+
+:where(.dateSelect).ant-select-single.ant-select-show-arrow .ant-select-selection-placeholder {
+  -webkit-padding-end:14px !important;
+          padding-inline-end:14px !important;
+  text-align: end !important;
+  text-overflow: initial;
+}
+
+:where(.dateSelect).ant-select-single.ant-select-show-arrow .ant-select-selection-item {
+  text-align: end !important;
+  -webkit-padding-end: 10px !important;
+          padding-inline-end: 10px !important;
+}
+
 .hover\:border:hover{
   border-width: 1px;
 }
@@ -2439,11 +2491,6 @@ select option {
 .hover\:border-blue-800:hover{
   --tw-border-opacity: 1;
   border-color: rgb(30 64 175 / var(--tw-border-opacity));
-}
-
-.hover\:border-purple-500:hover{
-  --tw-border-opacity: 1;
-  border-color: rgb(168 85 247 / var(--tw-border-opacity));
 }
 
 .hover\:bg-blue-400:hover{
@@ -2644,4 +2691,4 @@ select option {
     margin-right: calc(1rem * var(--tw-space-x-reverse));
     margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
   }
-} 
+}
