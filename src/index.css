@@ -1,4 +1,4 @@
-@charset "UTF-8";
+/* @charset "UTF-8"; */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap');
 
@@ -18,7 +18,12 @@
 ::-webkit-scrollbar {
     width: 0;
 }
-
+.rdrDayNumber {
+    top:0 !important;
+}
+.rdrDayToday .rdrDayNumber span:after {
+    bottom: 0 !important;
+}
 .react-tel-input {
     max-width: 200px !important;
     border: none;
@@ -342,7 +347,7 @@ button.rbc-input::-moz-focus-inner {
 }
 
 .rbc-off-range-bg {
-    background: #e6e6e6;
+    background: #f6f6f6;
 }
 
 .rbc-header {
@@ -558,6 +563,11 @@ button.rbc-input::-moz-focus-inner {
     cursor: pointer;
     width: 100%;
     text-align: left;
+    font-size: 12px;
+    box-shadow: 0 4px 6px -1px rgb(255, 255, 255), 0 4px 6px -4px rgb(255, 255, 255);
+}
+.rbc-event:hover {
+    background-color: #b161fd;
 }
 
 .rbc-slot-selecting .rbc-event,
@@ -569,13 +579,15 @@ button.rbc-input::-moz-focus-inner {
 
 .rbc-event.rbc-selected,
 .rbc-day-slot .rbc-selected.rbc-background-event {
-    background-color: #a855f7;
+    background-color: #e9d5fb;
 }
 
 .rbc-event:focus,
 .rbc-day-slot .rbc-background-event:focus {
     outline: 5px auto #9421ff;
 }
+
+
 
 .rbc-event-label {
     font-size: 80%;
@@ -624,6 +636,7 @@ button.rbc-input::-moz-focus-inner {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
+
 .rbc-show-more {
     background-color: rgba(255, 255, 255, 0.3);
     z-index: 4;
@@ -631,12 +644,13 @@ button.rbc-input::-moz-focus-inner {
     font-size: 85%;
     height: auto;
     line-height: normal;
-    color: #3174ad;
+    color: #a855f7;
 }
 
 .rbc-show-more:hover,
 .rbc-show-more:focus {
-    color: #265985;
+    color: #a855f7;
+    text-decoration:underline;
 }
 
 .rbc-month-view {
