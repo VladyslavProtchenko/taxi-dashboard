@@ -7,8 +7,8 @@ import { DateRange } from 'react-date-range';
 import { addDays } from 'date-fns';
 import { Calendar as CalendarContent, dayjsLocalizer } from 'react-big-calendar'
 import dayjs from 'dayjs'
-import 'react-big-calendar/lib/css/react-big-calendar.css';
-import "react-big-calendar/lib/addons/dragAndDrop/styles.css";
+// import 'react-big-calendar/lib/css/react-big-calendar.css';
+// import "react-big-calendar/lib/addons/dragAndDrop/styles.css";
 
 const localizer = dayjsLocalizer(dayjs)
 
