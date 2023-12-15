@@ -26,6 +26,7 @@ const Calendar = (): React.ReactNode => {
             key: 'compare'
         }
     });
+    const [calendarDate, setCalendarDate] = useState(dayjs().format('YYYY-MM-DD HH:mm:ss'))
 
     const myEventsList:{data:any,id?:number,title:string,allDay?:boolean,start:Date,end:Date}[] =[
         { 
@@ -108,6 +109,7 @@ const Calendar = (): React.ReactNode => {
         },
     ]
 
+
     const setFilterType = () => {
 
     }
@@ -133,6 +135,8 @@ const Calendar = (): React.ReactNode => {
     const handleEvent =(event:any) =>{
         console.log(event)
     }
+    
+
     return (
         <div className={container}>
 {/*_________________________________________________MENU_______________________________________________________________________________   */}
@@ -147,12 +151,29 @@ const Calendar = (): React.ReactNode => {
 
                 {/* ______________ TABS _________________________________________ */}
                 <div className={tabs}>
-                    <div className={range === 1 ? menuTabActive : menuTab} onClick={() => setRange(1)}>Range dates</div>
-                    <div className={range === 2 ? menuTabActive : menuTab} onClick={() => setRange(2)}>Last 7 days</div>
-                    <div className={range === 3 ? menuTabActive : menuTab} onClick={() => setRange(3)}>Yesterday</div>
-                    <div className={range === 4 ? menuTabActive : menuTab} onClick={() => setRange(4)}>Today</div>
-                    <div className={range === 5 ? menuTabActive : menuTab} onClick={() => setRange(5)}>Tomorrow</div>
-                    <div className={range === 6 ? menuTabActive : menuTab} onClick={() => setRange(6)}>Next 7 days</div>
+                    <div className={range === 1 ? menuTabActive : menuTab} onClick={() => {
+                            setRange(1)
+                        }}>Range dates</div>
+                    <div className={range === 2 ? menuTabActive : menuTab} onClick={() => {
+                            setCalendarDate(dayjs().subtract(1, 'week').format('YYYY-MM-DD '))
+                            setRange(2)
+                        }}>Last 7 days</div>
+                    <div className={range === 3 ? menuTabActive : menuTab} onClick={() => {
+                            setCalendarDate(dayjs().subtract(1, 'day').format('YYYY-MM-DD '))
+                            setRange(3)
+                        }}>Yesterday</div>
+                    <div className={range === 4 ? menuTabActive : menuTab} onClick={() => {
+                            setCalendarDate(dayjs().format('YYYY-MM-DD '))
+                            setRange(4)
+                        }}>Today</div>
+                    <div className={range === 5 ? menuTabActive : menuTab} onClick={() => {
+                            setCalendarDate(dayjs().add(1, 'day').format('YYYY-MM-DD'))
+                            setRange(5)
+                        }}>Tomorrow</div>
+                    <div className={range === 6 ? menuTabActive : menuTab} onClick={() => {
+                            setCalendarDate(dayjs().add(1, 'week').format('YYYY-MM-DD'))
+                            setRange(6)
+                        }}>Next 7 days</div>
                 </div>
                 {/* _______________FILTERS________________________________________ */}
 
@@ -200,6 +221,8 @@ const Calendar = (): React.ReactNode => {
                         endAccessor="end"
                         style={{ height: 500 }}
                         onSelectEvent={handleEvent}
+                        date={calendarDate}
+                        onNavigate={(event)=> setCalendarDate(dayjs(event).format('YYYY-MM-DD'))}
                     />
                 </div>
             </div>
