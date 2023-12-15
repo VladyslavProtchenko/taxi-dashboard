@@ -27,13 +27,85 @@ const Calendar = (): React.ReactNode => {
         }
     });
 
-    const myEventsList:{id?:number,title:string,allDay?:boolean,start:Date,end:Date}[] =[
+    const myEventsList:{data:any,id?:number,title:string,allDay?:boolean,start:Date,end:Date}[] =[
         { 
-            
+            data: {text:'tetesdfsdfdsf',bitch:'fck yu btch'},
             title: "title",
             start: dayjs().set('hour', 7).set('minute',15).toDate(),
             end: dayjs().set('hour', 9).set('minute',30).toDate(), 
-        }
+        },
+        { 
+            data: {text:'tetesdfsdfdsf',bitch:'fck yu btch'},
+            title: "title",
+            start: dayjs().set('hour', 7).set('minute',15).toDate(),
+            end: dayjs().set('hour', 9).set('minute',30).toDate(), 
+        },
+        { 
+            data: {text:'tetesdfsdfdsf',bitch:'fck yu btch'},
+            title: "title",
+            start: dayjs().set('hour', 7).set('minute',15).toDate(),
+            end: dayjs().set('hour', 9).set('minute',30).toDate(), 
+        },
+        { 
+            data: {text:'tetesdfsdfdsf',bitch:'fck yu btch'},
+            title: "title",
+            start: dayjs().set('hour', 7).set('minute',15).toDate(),
+            end: dayjs().set('hour', 9).set('minute',30).toDate(), 
+        },
+        { 
+            data: {text:'tetesdfsdfdsf',bitch:'fck yu btch'},
+            title: "title",
+            start: dayjs().set('hour', 7).set('minute',15).toDate(),
+            end: dayjs().set('hour', 9).set('minute',30).toDate(), 
+        },
+        { 
+            data: {text:'tetesdfsdfdsf',bitch:'fck yu btch'},
+            title: "title",
+            start: dayjs().set('hour', 7).set('minute',15).toDate(),
+            end: dayjs().set('hour', 9).set('minute',30).toDate(), 
+        },
+        { 
+            data: {text:'tetesdfsdfdsf',bitch:'fck yu btch'},
+            title: "title",
+            start: dayjs().set('hour', 7).set('minute',15).toDate(),
+            end: dayjs().set('hour', 9).set('minute',30).toDate(), 
+        },
+        { 
+            data: {text:'tetesdfsdfdsf',bitch:'fck yu btch'},
+            title: "title",
+            start: dayjs().set('hour', 7).set('minute',15).toDate(),
+            end: dayjs().set('hour', 9).set('minute',30).toDate(), 
+        },
+        { 
+            data: {text:'tetesdfsdfdsf',bitch:'fck yu btch'},
+            title: "title",
+            start: dayjs().set('hour', 7).set('minute',15).toDate(),
+            end: dayjs().set('hour', 9).set('minute',30).toDate(), 
+        },
+        { 
+            data: {text:'tetesdfsdfdsf',bitch:'fck yu btch'},
+            title: "title",
+            start: dayjs().set('hour', 7).set('minute',15).toDate(),
+            end: dayjs().set('hour', 9).set('minute',30).toDate(), 
+        },
+        { 
+            data: {text:'tetesdfsdfdsf',bitch:'fck yu btch'},
+            title: "title",
+            start: dayjs().set('hour', 7).set('minute',15).toDate(),
+            end: dayjs().set('hour', 9).set('minute',30).toDate(), 
+        },
+        { 
+            data: {text:'tetesdfsdfdsf',bitch:'fck yu btch'},
+            title: "title",
+            start: dayjs().set('hour', 7).set('minute',15).toDate(),
+            end: dayjs().set('hour', 9).set('minute',30).toDate(), 
+        },
+        { 
+            data: {text:'tetesdfsdfdsf',bitch:'fck yu btch'},
+            title: "title",
+            start: dayjs().set('hour', 7).set('minute',15).toDate(),
+            end: dayjs().set('hour', 9).set('minute',30).toDate(), 
+        },
     ]
 
     const setFilterType = () => {
@@ -58,6 +130,9 @@ const Calendar = (): React.ReactNode => {
     var months = Array.from({ length: 12 }, (_, index) => index + 1);
     var years = Array.from({ length: 50 }, (_, index) => index + 2001);
 
+    const handleEvent =(event:any) =>{
+        console.log(event)
+    }
     return (
         <div className={container}>
 {/*_________________________________________________MENU_______________________________________________________________________________   */}
@@ -124,6 +199,7 @@ const Calendar = (): React.ReactNode => {
                         startAccessor="start"
                         endAccessor="end"
                         style={{ height: 500 }}
+                        onSelectEvent={handleEvent}
                     />
                 </div>
             </div>
