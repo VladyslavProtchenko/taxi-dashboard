@@ -9,7 +9,6 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import { QueryClient, QueryClientProvider } from 'react-query'
 import Dashboard from './pages/Dashboard/Dashboard';
 import Calendar from './pages/Dashboard/Calendar.tsx';
 import Customers from './pages/Dashboard/Customers.tsx';
@@ -22,10 +21,8 @@ import Cancel from './pages/Dashboard/Links/Cancel.tsx';
 import Pending from './pages/Dashboard/Links/Pending.tsx';
 import Edit from './pages/Dashboard/Links/Edit.tsx';
 
-const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
-
   {
     path: "/",
     element: <Dashboard />,
@@ -58,27 +55,25 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path: "/confirm/:id",
+    path: "confirm/:id",
     element: <Confirm />,
   },
   {
-    path: "/cancel/:id",
+    path: "cancel/:id",
     element: <Cancel />,
   },
   {
-    path: "/pending/:id",
+    path: "pending/:id",
     element: <Pending />,
   },
   {
-    path: "/editOrder/:id",
+    path: "editOrder/:id",
     element: <Edit />,
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
-    </QueryClientProvider>
   </React.StrictMode>,
 )
