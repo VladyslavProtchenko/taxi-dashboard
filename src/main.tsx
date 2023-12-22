@@ -7,6 +7,7 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import {
   createBrowserRouter,
+  Navigate,
   RouterProvider,
 } from "react-router-dom";
 import Dashboard from './pages/Dashboard/Dashboard';
@@ -20,39 +21,57 @@ import Confirm from './pages/Dashboard/Links/Confirm.tsx';
 import Cancel from './pages/Dashboard/Links/Cancel.tsx';
 import Pending from './pages/Dashboard/Links/Pending.tsx';
 import Edit from './pages/Dashboard/Links/Edit.tsx';
+import Login from './pages/Dashboard/auth/Login.tsx';
+import Registration from './pages/Dashboard/auth/Registration.tsx';
+import AuthRouter from './pages/AuthRouter.tsx';
+
+
+
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Dashboard />,
+    element: <AuthRouter />,
     children:[
       {
-        index: true,
-        element: <Calendar />,
-      },
-      {
-        path: "Customers",
-        element: <Customers />,
-      },
-
-      {
-        path: "orders",
-        element: <Orders />,
-      },
-      {
-        path: "drivers",
-        element: <Drivers />,
-      },
-      {
-        path: "prices",
-        element: <Prices />,
-      },
-      {
-        path: "settings",
-        element: <Settings />,
-      },
+        element: <Dashboard />,
+        children:[
+          {
+            index: true,
+            element: <Calendar />,
+          },
+          {
+            path: "Customers",
+            element: <Customers />,
+          },
+          {
+            path: "orders",
+            element: <Orders />,
+          },
+          {
+            path: "drivers",
+            element: <Drivers />,
+          },
+          {
+            path: "prices",
+            element: <Prices />,
+          },
+          {
+            path: "settings",
+            element: <Settings />,
+          },
+        ],
+      }
     ]
+  },
+  {
+    path: "login",
+    element: <Login />,
+  },
+  {
+    path: "registration",
+    element: <Registration />,
   },
   {
     path: "confirm/:id",
@@ -70,6 +89,7 @@ const router = createBrowserRouter([
     path: "editOrder/:id",
     element: <Edit />,
   },
+  { path: "*", element: <Navigate to="/login" replace /> }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
