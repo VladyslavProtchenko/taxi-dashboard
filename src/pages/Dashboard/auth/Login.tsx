@@ -29,6 +29,7 @@ const Login = (): React.ReactNode => {
             setStatus(0)
             nav('/')
         }
+
     },[response])
 
     const initialValues: FormValues = {
@@ -46,6 +47,8 @@ const Login = (): React.ReactNode => {
             })
         },
     });
+
+    console.log(response, 'resp')
     return (
         <div style={{ backgroundImage: `url(${bg})`, }} className={container}>
             <div className={coll}><h1 className={header}>BONJOUR TAXI</h1></div>
@@ -70,7 +73,8 @@ const Login = (): React.ReactNode => {
                         <span className={warn}>{formik.touched.email && formik.errors.email ? (
                             <div>{formik.errors.email}</div>
                         ) : null}</span>
-                        <span className={response===409? warn: 'hidden'}>User already exists</span>
+                        <span className={response === 409 ? warn: 'hidden'}>User already exists</span>
+                        <span className={response === 404 ? warn: 'hidden'}>User not exists</span>
                     </div>
 
                     <div  className={inputBox}>

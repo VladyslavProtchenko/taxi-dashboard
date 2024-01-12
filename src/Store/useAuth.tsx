@@ -36,7 +36,7 @@ export const useAuth = create<Store>((set) => ({
         const res = await axios.post('https://taxibeckend.onrender.com/auth/login', data).then(res => res.data)
         console.log(res, 'login response from server')
         if(res.token) localStorage.setItem('token', res.token);
-        set(state => ({...state,response:res.status }))
+        set(state => ({...state, response: res.status }))
     },
 
     registration: async (data) =>{
